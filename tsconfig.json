@@ -5,7 +5,8 @@
     "lib": ["ES2020", "DOM", "DOM.Iterable"],
     "module": "ESNext",
     "skipLibCheck": true,
-
+    "types": ["vite-plugin-svgr/client"],
+    
     /* Bundler mode */
     "moduleResolution": "bundler",
     "allowImportingTsExtensions": true,
@@ -16,6 +17,7 @@
     "baseUrl": ".",
     "paths": {
       "@assets/*": ["src/assets/*"],
+      "@icons": ["src/assets/icons/index"],
       "@components/*": ["src/components/*"],
       "@hooks/*": ["src/hooks/*"],
       "@pages": ["src/pages/index"],
