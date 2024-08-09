@@ -24,5 +24,12 @@ export default {
   plugins: [require("daisyui")],
   daisyui: {
     darkTheme: "light",
+    themes: [
+      {
+        mytheme: {
+          primary: "#d2ef9a", // Change this to your desired primary color
+        },
+      },
+    ],
   },
 };

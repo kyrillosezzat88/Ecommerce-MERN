@@ -1,0 +1,7 @@
+.btn{
+    @apply px-4 py-2 rounded transition-all hover:transition-all duration-300;
+}
+
+.btn-primary{
+    @apply bg-black hover:bg-primary;
+}

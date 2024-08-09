@@ -5,7 +5,7 @@ import { HeaderCounter } from "@components/ecommerce";
 
 const Navbar = () => {
   return (
-    <nav className="py-6 shadow">
+    <nav className="py-6 absolute inset-0 md:h-[74px] h-[56px] bg-transparent">
       <div className="container">
         <div className="flex items-center justify-between">
           <MenuIcon className="md:hidden" />

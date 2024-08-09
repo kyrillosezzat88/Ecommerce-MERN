@@ -18,6 +18,7 @@
     "paths": {
       "@assets/*": ["src/assets/*"],
       "@icons": ["src/assets/icons/index"],
+      "@images": ["src/assets/images"],
       "@components/*": ["src/components/*"],
       "@hooks/*": ["src/hooks/*"],
       "@pages": ["src/pages/index"],

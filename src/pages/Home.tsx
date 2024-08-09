@@ -1,7 +1,13 @@
+import { HeroSlider } from "@components/common";
+import { ProductsTabs } from "@components/ecommerce";
+
 const Home = () => {
   return (
-    <div>Home</div>
-  )
-}
+    <section>
+      <HeroSlider />
+      <ProductsTabs />
+    </section>
+  );
+};
 
-export default Home
+export default Home;
