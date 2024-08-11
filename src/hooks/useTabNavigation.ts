@@ -10,7 +10,9 @@ const useTabNavigation = (
   activeTab: number
 ) => {
   const dispatch = useAppDispatch();
-  const { productsTabs } = useAppSelector((state) => state.products);
+  const { productsTabs, loading, error } = useAppSelector(
+    (state) => state.products
+  );
 
   const activeTAbHandler = (activeTab: number) => {
     setActiveTab(activeTab);
@@ -26,7 +28,7 @@ const useTabNavigation = (
       dispatch(activeProductsTabCleanup());
     };
   }, [dispatch, productsTabs]);
-  return { activeTAbHandler };
+  return { activeTAbHandler, loading, error };
 };
 
 export default useTabNavigation;

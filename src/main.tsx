@@ -4,9 +4,13 @@ import { Provider } from "react-redux";
 import { store } from "@store/store";
 import "@styles/base.css";
 import "./services/axios-global";
+import { SkeletonTheme } from "react-loading-skeleton";
+import "react-loading-skeleton/dist/skeleton.css";
 
 ReactDOM.createRoot(document.getElementById("root")!).render(
   <Provider store={store}>
-    <AppRouter />
+    <SkeletonTheme baseColor="#ddd" highlightColor="#eee">
+      <AppRouter />
+    </SkeletonTheme>
   </Provider>
 );
