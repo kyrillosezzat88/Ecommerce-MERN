@@ -1,6 +1,8 @@
 import { HeartIcon, RepeatIcon } from "@assets/icons";
+import useProductCard from "@hooks/useProductCard";
 import { TProduct } from "@types";
-const ProductCard = ({ name, mainImage, gallery, price }: TProduct) => {
+const ProductCard = ({ name, mainImage, gallery, price, id }: TProduct) => {
+  const { addProductHandler, compareHandler } = useProductCard(id);
   return (
     <div className="flex flex-col gap-3">
       <div className="relative cursor-pointer group overflow-hidden rounded-2xl">
@@ -15,14 +17,16 @@ const ProductCard = ({ name, mainImage, gallery, price }: TProduct) => {
         <span className="uppercase absolute top-3 left-3 bg-primary rounded-full text-sm px-3 py-1">
           new
         </span>
+
         {/* actions  buttons */}
         <div className="flex gap-3 absolute transition-all duration-300 -bottom-20 group-hover:bottom-3 items-center justify-center w-full">
-          <button className="btn btn-primary rounded-full btn-md">
-            {/* <span className="loading loading-spinner"></span>  */}
+          <button
+            className="btn btn-primary rounded-full btn-md"
+            onClick={addProductHandler}
+          >
             Add to cart
           </button>
           <button className="btn btn-base-100 rounded-full btn-md">
-            {/* <span className="loading loading-spinner"></span> */}
             Quick view
           </button>
         </div>
@@ -30,7 +34,10 @@ const ProductCard = ({ name, mainImage, gallery, price }: TProduct) => {
           <button className="btn btn-circle btn-sm [&>svg]:w-4">
             <HeartIcon />
           </button>
-          <button className="btn btn-circle btn-sm [&>svg]:w-4">
+          <button
+            className="btn btn-circle btn-sm [&>svg]:w-4"
+            onClick={compareHandler}
+          >
             <RepeatIcon />
           </button>
         </div>
