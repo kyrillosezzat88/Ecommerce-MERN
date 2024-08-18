@@ -12,7 +12,7 @@ const ProductsList = ({ products, loading }: TProductListProps) => {
     <ProductCard key={product.id} {...product} />
   ));
   return (
-    <div className="grid grid-cols-1 md:grid-cols-4 gap-6">
+    <div className="grid grid-cols-1 md:grid-cols-4 gap-6 min-h-96">
       {loading == "pending"
         ? Array.from({ length: 4 }).map((_, idx) => (
             <ProductCardSkeleton key={idx} />
