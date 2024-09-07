@@ -8,6 +8,7 @@ const useProduct = () => {
   const { loading, error, productsTabs, activeProductsTab } = useAppSelector(
     (state) => state.products
   );
+  const { products } = useAppSelector((state) => state.wishlist);
   useEffect(() => {
     dispatch(actGetHomeProductsTabs());
   }, [dispatch]);
@@ -19,6 +20,7 @@ const useProduct = () => {
     activeTab,
     setActiveTab,
     activeProductsTab,
+    products,
   };
 };
 

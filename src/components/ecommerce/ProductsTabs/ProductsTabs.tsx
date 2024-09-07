@@ -10,6 +10,7 @@ const ProductsTabs = () => {
     activeTab,
     setActiveTab,
     activeProductsTab,
+    products,
   } = useProduct();
   return (
     <div className="container flex justify-center flex-col items-center spaceY">
@@ -25,6 +26,7 @@ const ProductsTabs = () => {
           products={activeProductsTab}
           error={error}
           loading={loading}
+          wishlistProducts={products}
         />
       </div>
     </div>
