@@ -14,6 +14,7 @@ const ProductCard = memo(
       isWishLoading,
       isCompareLoading,
     } = useProductCard(id, name);
+
     return (
       <div className="flex flex-col gap-3">
         <div className="relative cursor-pointer group overflow-hidden rounded-2xl">
