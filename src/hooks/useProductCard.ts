@@ -15,6 +15,7 @@ const useProductCard = (id: number, name: string) => {
     isAddToCompareDisabled: false,
     isWishLoading: false,
     isCompareLoading: false,
+    isProductModalOpen: false,
   });
 
   const updateState = (key: string, value: boolean) => {
@@ -55,10 +56,15 @@ const useProductCard = (id: number, name: string) => {
       .catch((error) => console.log(error));
   };
 
+  const openModalQuickView = () => {
+    updateState("isProductModalOpen", true);
+  };
+
   return {
     addProductHandler,
     compareHandler,
     wishlistToggleHandler,
+    openModalQuickView,
     ...state,
     loading,
     error,

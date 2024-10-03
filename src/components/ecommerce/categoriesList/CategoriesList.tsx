@@ -5,7 +5,9 @@ import { CategoryCardSkeleton } from "@components/feedback/skeletons";
 const CategoriesList = () => {
   const { loading, categories } = useCategories();
 
-  const List = categories.map((category) => <CategoryCard {...category} />);
+  const List = categories.map((category) => (
+    <CategoryCard key={category.id} {...category} />
+  ));
 
   return (
     <>
