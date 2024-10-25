@@ -2,9 +2,21 @@ import { HeartIcon, HeartSolidIcon, RepeatIcon } from "@assets/icons";
 import useProductCard from "@hooks/useProductCard";
 import { TProduct } from "@types";
 import { memo } from "react";
-import { Modal } from "@components/common";
+import { Modal, ProductModalContent } from "@components/common";
 const ProductCard = memo(
-  ({ name, mainImage, gallery, price, id, isLiked }: TProduct) => {
+  ({
+    name,
+    mainImage,
+    gallery,
+    price,
+    id,
+    isLiked,
+    description,
+    max,
+    stock,
+    rate,
+    categoryId,
+  }: TProduct) => {
     const {
       addProductHandler,
       compareHandler,
@@ -15,16 +27,30 @@ const ProductCard = memo(
       isWishLoading,
       isCompareLoading,
       isProductModalOpen,
+      closeModalQuickView,
       openModalQuickView,
     } = useProductCard(id, name);
 
+    const productModalProps = {
+      name,
+      mainImage,
+      gallery,
+      price,
+      id,
+      isLiked,
+      description,
+      max,
+      stock,
+      categoryId,
+      rate,
+    };
     return (
       <>
         <Modal
-          title="Product modal title"
-          content={<div>test</div>}
-          onClose={() => console.log("closed")}
+          content={<ProductModalContent {...productModalProps} />}
+          onClose={closeModalQuickView}
           isOpen={isProductModalOpen}
+          actionBtn={false}
         />
         <div className="flex flex-col gap-3">
           <div className="relative cursor-pointer group overflow-hidden rounded-2xl">

@@ -1,8 +1,9 @@
 import { ReactNode } from "react";
 
 export type TModal = {
-  title: string;
+  title?: string;
   content: ReactNode;
   onClose: () => void;
   isOpen: boolean;
+  actionBtn?: boolean;
 };

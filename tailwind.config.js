@@ -18,6 +18,7 @@ export default {
       },
       colors: {
         primary: "#d2ef9a",
+        black: "#000",
       },
     },
   },

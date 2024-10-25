@@ -59,12 +59,16 @@ const useProductCard = (id: number, name: string) => {
   const openModalQuickView = () => {
     updateState("isProductModalOpen", true);
   };
+  const closeModalQuickView = () => {
+    updateState("isProductModalOpen", false);
+  };
 
   return {
     addProductHandler,
     compareHandler,
     wishlistToggleHandler,
     openModalQuickView,
+    closeModalQuickView,
     ...state,
     loading,
     error,

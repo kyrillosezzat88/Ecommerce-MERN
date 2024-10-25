@@ -11,6 +11,7 @@ export type TProduct = {
   isLiked?: boolean;
   isAuthenticated?: boolean;
   gallery?: string[];
+  rate?: number;
 };
 
 export type TProductsTab = {
