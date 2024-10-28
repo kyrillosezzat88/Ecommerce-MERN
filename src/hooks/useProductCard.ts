@@ -56,7 +56,8 @@ const useProductCard = (id: number, name: string) => {
       .catch((error) => console.log(error));
   };
 
-  const openModalQuickView = () => {
+  const openModalQuickView = (e) => {
+    e.stopPropagation();
     updateState("isProductModalOpen", true);
   };
   const closeModalQuickView = () => {
