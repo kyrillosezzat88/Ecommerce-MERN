@@ -23,12 +23,14 @@ const cartSlice = createSlice({
   initialState,
   reducers: {
     addToCart: (state, action) => {
-      const productId = action.payload;
-      const getProduct = state.products.find((pro) => pro.id === productId);
+      console.log(action.payload);
+      const { id, quantity = 1 } = action.payload;
+      const getProduct = state.products.find((pro) => pro.id === id);
+
       if (getProduct) {
-        getProduct.quantity++;
+        getProduct.quantity += quantity;
       } else {
-        state.products = [...state.products, { id: productId, quantity: 1 }];
+        state.products.push({ id, quantity });
       }
     },
   },

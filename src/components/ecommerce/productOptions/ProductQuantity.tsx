@@ -1,11 +1,16 @@
-import { useState } from "react";
-
 type TProductQuantity = {
   price: number;
+  quantity: number;
+  setQuantity: (
+    newQuantity: number | ((prevQuantity: number) => number)
+  ) => void;
 };
 
-const ProductQuantity = ({ price }: TProductQuantity) => {
-  const [quantity, setQuantity] = useState(1);
+const ProductQuantity = ({
+  price,
+  quantity,
+  setQuantity,
+}: TProductQuantity) => {
   const incrementQTY = () => {
     setQuantity((prev) => prev + 1);
   };

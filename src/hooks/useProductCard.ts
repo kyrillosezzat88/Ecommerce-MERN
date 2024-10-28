@@ -5,7 +5,7 @@ import { actWishlistToggle } from "@store/wishlist/wishlistSlice";
 import { useState } from "react";
 import { toast } from "react-toastify";
 
-const useProductCard = (id: number, name: string) => {
+const useProductCard = (id: number, name: string, quantity?: number) => {
   const dispatch = useAppDispatch();
   const { loading, error } = useAppSelector((state) => state.wishlist);
 
@@ -24,7 +24,7 @@ const useProductCard = (id: number, name: string) => {
 
   const addProductHandler = () => {
     updateState("isAddToCartDisabled", true);
-    dispatch(addToCart(id));
+    dispatch(addToCart({ id, quantity }));
     setTimeout(() => {
       updateState("isAddToCartDisabled", false);
     }, 1000);
@@ -56,7 +56,7 @@ const useProductCard = (id: number, name: string) => {
       .catch((error) => console.log(error));
   };
 
-  const openModalQuickView = (e) => {
+  const openModalQuickView = (e: React.MouseEvent<HTMLButtonElement>) => {
     e.stopPropagation();
     updateState("isProductModalOpen", true);
   };

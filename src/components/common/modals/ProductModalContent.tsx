@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import { TProduct } from "@types";
 import {
   ProductActions,
@@ -18,6 +18,7 @@ const ProductModalContent: React.FC<TProduct> = ({
   description,
   rate,
 }) => {
+  const [quantity, setQuantity] = useState<number>(1);
   return (
     <div className="flex gap-6 max-h-1/2 flex-wrap md:flex-nowrap">
       <div className="w-full md:w-1/2">
@@ -30,8 +31,12 @@ const ProductModalContent: React.FC<TProduct> = ({
         <p className="my-2 py-4 border-gray-200 border-b">{description}</p>
         <ProductColors />
         <ProductSizes />
-        <ProductQuantity price={price} />
-        <ProductActions />
+        <ProductQuantity
+          price={price}
+          quantity={quantity}
+          setQuantity={setQuantity}
+        />
+        <ProductActions id={id} name={name} quantity={quantity} />
       </div>
     </div>
   );
