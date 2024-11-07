@@ -3,6 +3,7 @@ import useProductCard from "@hooks/useProductCard";
 import { TProduct } from "@types";
 import { memo } from "react";
 import { Modal, ProductModalContent } from "@components/common";
+import { NavLink } from "react-router-dom";
 const ProductCard = memo(
   ({
     name,
@@ -109,7 +110,10 @@ const ProductCard = memo(
               </button>
             </div>
           </div>
-          <h2 className="font-semibold">{name}</h2>
+          <NavLink to={`/products/${id}`}>
+            {" "}
+            <h2 className="font-semibold">{name}</h2>
+          </NavLink>
           <div className="flex items-center gap-4">
             <span>${price}</span>
             <span className="text-sm text-gray-400 line-through">$36</span>

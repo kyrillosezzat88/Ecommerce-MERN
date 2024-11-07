@@ -2,10 +2,14 @@ import { NavLink } from "react-router-dom";
 import MenuLinks from "./Menu.json";
 import { CartIcon, SearchIcon, WishlistIcon, UserIcon, MenuIcon } from "@icons";
 import { HeaderCounter } from "@components/ecommerce";
+import MiniCart from "../miniCart/MiniCart";
+import { useAppSelector } from "@store/hooks";
 
 const Navbar = () => {
+  const { products } = useAppSelector((state) => state.cart);
   return (
     <nav className="py-6 absolute inset-0 md:h-[74px] h-[56px] bg-transparent">
+      <MiniCart />
       <div className="container">
         <div className="flex items-center justify-between">
           <MenuIcon className="md:hidden" />
@@ -37,7 +41,14 @@ const Navbar = () => {
               counter={0}
               className="hidden md:block"
             />
-            <HeaderCounter icon={<CartIcon />} counter={10} />
+            <HeaderCounter
+              icon={<CartIcon />}
+              counter={products.reduce(
+                (total, product) => total + product.quantity,
+                0
+              )}
+              type="drawer"
+            />
           </div>
         </div>
       </div>

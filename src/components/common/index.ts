@@ -4,3 +4,5 @@ export { default as HeroSlider } from "./slider/HeroSlider";
 export { default as Banner } from "./banner/Banner";
 export { default as Modal } from "./modals/Modal";
 export { default as ProductModalContent } from "./modals/ProductModalContent";
+export { default as Benefit } from "./benefits/Benefits";
+export { default as MiniCart } from "./miniCart/MiniCart";

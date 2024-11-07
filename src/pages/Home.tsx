@@ -1,4 +1,4 @@
-import { Banner, HeroSlider } from "@components/common";
+import { Banner, Benefit, HeroSlider } from "@components/common";
 import { CategoriesList, ProductsTabs } from "@components/ecommerce";
 
 const Home = () => {
@@ -8,6 +8,7 @@ const Home = () => {
       <ProductsTabs />
       <CategoriesList />
       <Banner />
+      <Benefit />
     </section>
   );
 };

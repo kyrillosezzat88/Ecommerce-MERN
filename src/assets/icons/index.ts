@@ -9,3 +9,7 @@ export { default as HeartSolidIcon } from "./heart-solid.svg?react";
 export { default as StarIcon } from "./star.svg?react";
 export { default as StarSolidIcon } from "./star-solid.svg?react";
 export { default as ShareIcon } from "./share.svg?react";
+export { default as PhoneCellingIcon } from "./phone-calling.svg?react";
+export { default as ReturnIcon } from "./return-box.svg?react";
+export { default as GuaranteeIcon } from "./correct.svg?react";
+export { default as ShippingIcon } from "./shipping.svg?react";
