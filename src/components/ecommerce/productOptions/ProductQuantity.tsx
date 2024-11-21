@@ -1,25 +1,43 @@
+import { cartItemChangeQTY } from "@store/cart/cartSlice";
+import { useAppDispatch } from "@store/hooks";
+
 type TProductQuantity = {
   price: number;
   quantity: number;
-  setQuantity: (
+  setQuantity?: (
     newQuantity: number | ((prevQuantity: number) => number)
   ) => void;
+  productId?: number;
 };
 
 const ProductQuantity = ({
   price,
   quantity,
   setQuantity,
+  productId,
 }: TProductQuantity) => {
+  const dispatch = useAppDispatch();
+
   const incrementQTY = () => {
-    setQuantity((prev) => prev + 1);
+    if (setQuantity) {
+      return setQuantity((prev) => prev + 1);
+    }
+    if (productId) {
+      dispatch(cartItemChangeQTY({ type: "INC", id: productId }));
+    }
   };
   const decrementQTY = () => {
-    setQuantity((prev) => prev - 1 || 1);
+    if (setQuantity) {
+      return setQuantity((prev) => prev - 1 || 1);
+    }
+    if (productId) {
+      dispatch(cartItemChangeQTY({ type: "DEC", id: productId }));
+    }
   };
+
   return (
     <div className="flex justify-between items-center">
-      <div className="flex items-center justify-between px-6 md:justify-center text-xl border border-gray-300 rounded-lg md:w-1/3">
+      <div className="flex items-center justify-between px-6 md:justify-center text-xl border border-gray-300 rounded-lg ">
         <button
           className=" btn btn-ghost hover:bg-gray-100"
           onClick={decrementQTY}
@@ -39,7 +57,7 @@ const ProductQuantity = ({
           +
         </button>
       </div>
-      <span className="font-bold text-2xl">
+      <span className="font-bold text-2xl ml-8">
         ${(price * quantity).toFixed(2)}
       </span>
     </div>

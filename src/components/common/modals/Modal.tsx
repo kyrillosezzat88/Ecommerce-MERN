@@ -7,6 +7,7 @@ const Modal = ({
   onClose,
   isOpen,
   actionBtn = true,
+  classes,
 }: TModal) => {
   useEffect(() => {
     const handleWindowClick = () => {
@@ -24,7 +25,7 @@ const Modal = ({
   return (
     <div className="modal modal-open">
       <div
-        className="modal-box w-11/12 max-w-5xl"
+        className={`modal-box  ${classes ? classes : "w-11/12 max-w-5xl"}`}
         onClick={(e) => e.stopPropagation()}
       >
         {title && <h3 className="font-bold text-lg">{title}</h3>}

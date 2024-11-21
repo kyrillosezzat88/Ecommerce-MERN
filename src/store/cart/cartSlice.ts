@@ -28,12 +28,32 @@ const cartSlice = createSlice({
     addToCart: (state, action) => {
       const { id, quantity = 1 } = action.payload;
       const getProduct = state.products.find((pro) => pro.id === id);
-
       if (getProduct) {
         getProduct.quantity += quantity;
       } else {
         state.products.push({ id, quantity });
       }
+    },
+    cartItemChangeQTY: (state, action) => {
+      const { id, type } = action.payload;
+      const product = state.products.find((pro) => pro.id === id);
+
+      if (!product) return;
+
+      if (type === "INC") {
+        product.quantity += 1;
+      } else if (type === "DEC") {
+        if (product.quantity > 1) {
+          product.quantity -= 1;
+        } else {
+          state.products = state.products.filter((pro) => pro.id !== id);
+        }
+      }
+    },
+    deleteProduct: (state, action) => {
+      state.products = state.products.filter(
+        (pro) => pro.id === action.payload
+      );
     },
   },
   extraReducers: (builder) => {
@@ -56,5 +76,6 @@ const cartSlice = createSlice({
 });
 
 export { actGetProductsById };
-export const { addToCart } = cartSlice.actions;
+export const { addToCart, cartItemChangeQTY, deleteProduct } =
+  cartSlice.actions;
 export default cartSlice.reducer;

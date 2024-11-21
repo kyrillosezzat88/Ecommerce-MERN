@@ -6,4 +6,5 @@ export type TModal = {
   onClose: () => void;
   isOpen: boolean;
   actionBtn?: boolean;
+  classes?: string;
 };

@@ -16,9 +16,9 @@ const HeaderCounter = ({
     type === "drawer"
       ? {
           htmlFor: "my-drawer-4",
-          className: `relative drawer-button ${className}`,
+          className: `relative drawer-button cursor-pointer ${className}`,
         }
-      : { className: `relative ${className}` };
+      : { className: `relative cursor-pointer ${className}` };
 
   return (
     <Wrapper {...wrapperProps}>
